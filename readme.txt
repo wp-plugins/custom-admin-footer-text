@@ -1,0 +1,88 @@
+=== Custom Admin Footer Text ===
+Tags: footer, admin, custom, text, dev, client
+Requires at least: 3.5
+Tested up to: 3.9
+Contributors: jp2112
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7EX9NB9TLFHVW
+Stable tag: trunk
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Display custom text (or links) in the admin footer.
+
+== Description ==
+
+Custom Admin Footer Text lets you customize the left and right admin footer text. Overwrite the default text or links with anything of your choosing. Great for developers working on client sites who want to include support links, bylines or credits in the footer.
+
+Currently the left footer says "Thank you for creating with WordPress" and the right footer shows the current WordPress version. For WordPress developers, this is a lost opportunity. Use that space to put links to your website, a copyright statement, whatever you want.
+
+Use it for:
+
+<ul>
+<li>Copyright statements/credits</li>
+<li>Link to support forum</li>
+<li>Link to your other products</li>
+</ul>
+
+Or maybe you are just a regular guy who doesn't like the admin footer. Put a link to your site or whatever you want to see.
+
+= Features =
+
+<ul>
+<li>Overwrite existing admin footer text with your own</li>
+<li>Disable the plugin and the original text returns</li>
+<li>Unclosed HTML tags are automatically fixed</li>
+</ul>
+
+== Installation ==
+
+1. Upload plugin file through the WordPress interface.
+2. Activate the plugin through the 'Plugins' menu in WordPress.
+3. Go to Settings &raquo; Custom Admin Footer Text, configure plugin.
+4. Insert shortcode on posts or pages, or use PHP function in functions.php or a plugin.
+
+== Frequently Asked Questions ==
+
+= How do I use the plugin? =
+
+Go to Settings &raquo; Custom Admin Footer Text and enter the text you want to see in the left and right admin footers. Make sure the "enabled" checkbox is checked.
+
+= I entered some text but don't see anything on the page. =
+
+Are you using another plugin that is also trying to overwrite the admin footer?
+
+Are you using any CSS that is hiding the footer?
+
+Are you caching your admin pages?
+
+= How can I style the output? =
+
+This is the footer HTML output:
+
+`<div id="wpfooter">
+<p id="footer-left" class="alignleft"><!-- here is the left footer --></p>
+<p id="footer-upgrade" class="alignright"><!-- here is the right footer --></p>
+</div>`
+
+Use these classes in your local stylesheet to style the output how you want.
+
+= I don't want the admin CSS. How do I remove it? =
+
+Add this to your functions.php:
+
+`remove_action('admin_head', 'insert_caft_admin_css');`
+
+== Screenshots ==
+
+1. Plugin settings page
+
+== Changelog ==
+
+= 0.0.1 =
+- created
+- verified compatibility with 3.9
+
+== Upgrade Notice ==
+
+= 0.0.1 =
+created, verified compatibility with 3.9
