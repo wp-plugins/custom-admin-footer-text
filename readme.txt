@@ -39,13 +39,13 @@ Or maybe you are just a regular guy who doesn't like the admin footer. Put a lin
 1. Upload plugin file through the WordPress interface.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Go to Settings &raquo; Custom Admin Footer Text, configure plugin.
-4. Insert shortcode on posts or pages, or use PHP function in functions.php or a plugin.
+4. Reload the page to see the footer.
 
 == Frequently Asked Questions ==
 
 = How do I use the plugin? =
 
-Go to Settings &raquo; Custom Admin Footer Text and enter the text you want to see in the left and right admin footers. Make sure the "enabled" checkbox is checked.
+Go to Settings &raquo; Custom Admin Footer Text and enter the text you want to see in the left and right admin footers. Make sure the "enabled" checkbox is checked. Refresh the page and check the footer.
 
 = I entered some text but don't see anything on the page. =
 
