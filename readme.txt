@@ -74,9 +74,13 @@ Add this to your functions.php:
 
 == Screenshots ==
 
-1. Plugin settings page
+1. Plugin settings page where you can see the text entered and how it appears in the footer.
 
 == Changelog ==
+
+= 0.0.4 =
+- code optimizations
+- plugin settings page is now tabbed
 
 = 0.0.3 =
 - fix 2 for wp_kses
@@ -89,6 +93,9 @@ Add this to your functions.php:
 - verified compatibility with 3.9
 
 == Upgrade Notice ==
+
+= 0.0.4 =
+- code optimizations; plugin settings page is now tabbed
 
 = 0.0.3 =
 - fix 2 for wp_kses

@@ -1,0 +1,128 @@
+# Copyright (C) 2014 Custom Admin Footer Text
+# This file is distributed under the same license as the Custom Admin Footer Text package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Custom Admin Footer Text 0.0.3\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-admin-footer-text\n"
+"POT-Creation-Date: 2014-04-22 02:38:31+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-04-23 09:46-0500\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en\n"
+
+#: custom-admin-footer-text.php:32
+msgid "Do not access this file directly."
+msgstr ""
+
+#: custom-admin-footer-text.php:71
+msgid "You do not have sufficient permission to access this page"
+msgstr ""
+
+#: custom-admin-footer-text.php:75
+msgid " by "
+msgstr ""
+
+#: custom-admin-footer-text.php:76
+msgid "You are running plugin version"
+msgstr ""
+
+#: custom-admin-footer-text.php:81
+msgid "Plugin Settings"
+msgstr ""
+
+#: custom-admin-footer-text.php:84 custom-admin-footer-text.php:87
+msgid "Is plugin enabled? Uncheck this to turn it off temporarily."
+msgstr ""
+
+#: custom-admin-footer-text.php:84
+msgid "Plugin enabled?"
+msgstr ""
+
+#: custom-admin-footer-text.php:88
+msgid "Enter custom left footer text"
+msgstr ""
+
+#: custom-admin-footer-text.php:91
+msgid ""
+"Type the custom footer text you want to appear in the lower <strong>left</"
+"strong> corner of admin menu pages. HTML allowed."
+msgstr ""
+
+#: custom-admin-footer-text.php:93
+msgid "Enter custom right footer text"
+msgstr ""
+
+#: custom-admin-footer-text.php:96
+msgid ""
+"Type the custom footer text you want to appear in the lower <strong>right</"
+"strong> corner of admin menu pages. HTML allowed."
+msgstr ""
+
+#: custom-admin-footer-text.php:104 custom-admin-footer-text.php:205
+msgid "Documentation"
+msgstr ""
+
+#: custom-admin-footer-text.php:105 custom-admin-footer-text.php:206
+msgid "FAQ"
+msgstr ""
+
+#: custom-admin-footer-text.php:106
+msgid "If you like this plugin, please "
+msgstr ""
+
+#: custom-admin-footer-text.php:108
+msgid "rate it on WordPress.org"
+msgstr ""
+
+#: custom-admin-footer-text.php:110
+msgid "and click the "
+msgstr ""
+
+#: custom-admin-footer-text.php:112
+msgid "Works"
+msgstr ""
+
+#: custom-admin-footer-text.php:114
+msgid "button. For support please visit the "
+msgstr ""
+
+#: custom-admin-footer-text.php:116
+msgid "forums"
+msgstr ""
+
+#: custom-admin-footer-text.php:169
+msgid "is currently disabled."
+msgstr ""
+
+#: custom-admin-footer-text.php:192
+msgid "Settings"
+msgstr ""
+
+#: custom-admin-footer-text.php:204
+msgid "Support"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Custom Admin Footer Text"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.jimmyscode.com/wordpress/custom-admin-footer-text/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Change the admin footer to your own custom text."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Jimmy Pe&ntilde;a"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.jimmyscode.com/"
+msgstr ""
