@@ -3,7 +3,7 @@
 Plugin Name: Custom Admin Footer Text
 Plugin URI: http://www.jimmyscode.com/wordpress/custom-admin-footer-text/
 Description: Change the admin footer to your own custom text.
-Version: 0.0.4
+Version: 0.0.5
 Author: Jimmy Pe&ntilde;a
 Author URI: http://www.jimmyscode.com/
 License: GPLv2 or later
@@ -11,7 +11,7 @@ License: GPLv2 or later
 
 define('CAFT_PLUGIN_NAME', 'Custom Admin Footer Text');
 	// plugin constants
-	define('CAFT_VERSION', '0.0.4');
+	define('CAFT_VERSION', '0.0.5');
 	define('CAFT_SLUG', 'custom-admin-footer-text');
 	define('CAFT_LOCAL', 'caft');
 	define('CAFT_OPTION', 'caft');
@@ -49,7 +49,7 @@ define('CAFT_PLUGIN_NAME', 'Custom Admin Footer Text');
 	function caft_validation($input) {
 		// sanitize textarea
 		// how?????
-		$input[CAFT_DEFAULT_FOOTERTEXT_NAME] = wp_kses_data(force_balance_tags($input[CAFT_DEFAULT_FOOTERTEXT_NAME]));
+		$input[CAFT_DEFAULT_FOOTERTEXT_NAME] = wp_kses_post(force_balance_tags($input[CAFT_DEFAULT_FOOTERTEXT_NAME]));
 		return $input;
 	} 
 
