@@ -3,7 +3,7 @@
 Plugin Name: Custom Admin Footer Text
 Plugin URI: http://www.jimmyscode.com/wordpress/custom-admin-footer-text/
 Description: Change the admin footer to your own custom text.
-Version: 0.0.5
+Version: 0.0.6
 Author: Jimmy Pe&ntilde;a
 Author URI: http://www.jimmyscode.com/
 License: GPLv2 or later
@@ -11,7 +11,7 @@ License: GPLv2 or later
 
 define('CAFT_PLUGIN_NAME', 'Custom Admin Footer Text');
 	// plugin constants
-	define('CAFT_VERSION', '0.0.5');
+	define('CAFT_VERSION', '0.0.6');
 	define('CAFT_SLUG', 'custom-admin-footer-text');
 	define('CAFT_LOCAL', 'caft');
 	define('CAFT_OPTION', 'caft');
@@ -49,7 +49,9 @@ define('CAFT_PLUGIN_NAME', 'Custom Admin Footer Text');
 	function caft_validation($input) {
 		// sanitize textarea
 		// how?????
-		$input[CAFT_DEFAULT_FOOTERTEXT_NAME] = wp_kses_post(force_balance_tags($input[CAFT_DEFAULT_FOOTERTEXT_NAME]));
+		if (!empty($input)) {
+			$input[CAFT_DEFAULT_FOOTERTEXT_NAME] = wp_kses_post(force_balance_tags($input[CAFT_DEFAULT_FOOTERTEXT_NAME]));
+		}
 		return $input;
 	} 
 
@@ -71,7 +73,7 @@ define('CAFT_PLUGIN_NAME', 'Custom Admin Footer Text');
 			<div><?php _e('You are running plugin version', caft_get_local()); ?> <strong><?php echo CAFT_VERSION; ?></strong>.</div>
 			
 			<?php /* http://code.tutsplus.com/tutorials/the-complete-guide-to-the-wordpress-settings-api-part-5-tabbed-navigation-for-your-settings-page--wp-24971 */ ?>
-			<?php $active_tab = (isset($_GET['tab']) ? $_GET['tab'] : 'settings'); ?>
+			<?php $active_tab = (!empty($_GET['tab']) ? $_GET['tab'] : 'settings'); ?>
 			<h2 class="nav-tab-wrapper">
 			  <a href="?page=<?php echo caft_get_slug(); ?>&tab=settings" class="nav-tab <?php echo $active_tab == 'settings' ? 'nav-tab-active' : ''; ?>"><?php _e('Settings', caft_get_local()); ?></a>
 				<a href="?page=<?php echo caft_get_slug(); ?>&tab=support" class="nav-tab <?php echo $active_tab == 'support' ? 'nav-tab-active' : ''; ?>"><?php _e('Support', caft_get_local()); ?></a>
@@ -113,7 +115,11 @@ define('CAFT_PLUGIN_NAME', 'Custom Admin Footer Text');
 	add_filter('update_footer', 'caft_change_right_footer',999);
 	function caft_remove_footer_admin($default) {
 		$options = caft_getpluginoptions();
-		$enabled = (bool)$options[CAFT_DEFAULT_ENABLED_NAME];
+		if (!empty($options)) {
+			$enabled = (bool)$options[CAFT_DEFAULT_ENABLED_NAME];
+		} else {
+			$enabled = CAFT_DEFAULT_ENABLED;
+		}
 		if ($enabled) {
 			$ft = $options[CAFT_DEFAULT_FOOTERTEXT_NAME];
 			if ($ft !== CAFT_DEFAULT_FOOTERTEXT) {
@@ -127,7 +133,11 @@ define('CAFT_PLUGIN_NAME', 'Custom Admin Footer Text');
 	}
 	function caft_change_right_footer($default) {
 		$options = caft_getpluginoptions();
-		$enabled = (bool)$options[CAFT_DEFAULT_ENABLED_NAME];
+		if (!empty($options)) {
+			$enabled = (bool)$options[CAFT_DEFAULT_ENABLED_NAME];
+		} else {
+			$enabled = CAFT_DEFAULT_ENABLED;
+		}
 		if ($enabled) {
 			$rft = $options[CAFT_DEFAULT_RIGHTFOOTER_NAME];
 			if ($rft !== CAFT_DEFAULT_RIGHTFOOTER) {
@@ -147,12 +157,14 @@ define('CAFT_PLUGIN_NAME', 'Custom Admin Footer Text');
 		global $pagenow;
 		if (current_user_can(CAFT_PERMISSIONS_LEVEL)) { // user has privilege
 			if ($pagenow == 'options-general.php') { // we are on Settings menu
-				if ($_GET['page'] == caft_get_slug()) { // we are on this plugin's settings page
-					$options = caft_getpluginoptions();
-					if ($options != false) {
-						$enabled = (bool)$options[CAFT_DEFAULT_ENABLED_NAME];
-						if (!$enabled) {
-							echo '<div id="message" class="error">' . CAFT_PLUGIN_NAME . ' ' . __('is currently disabled.', caft_get_local()) . '</div>';
+				if (!empty($_GET['page'])) {
+					if ($_GET['page'] == caft_get_slug()) { // we are on this plugin's settings page
+						$options = caft_getpluginoptions();
+						if (!empty($options)) {
+							$enabled = (bool)$options[CAFT_DEFAULT_ENABLED_NAME];
+							if (!$enabled) {
+								echo '<div id="message" class="error">' . CAFT_PLUGIN_NAME . ' ' . __('is currently disabled.', caft_get_local()) . '</div>';
+							}
 						}
 					}
 				}
@@ -165,8 +177,10 @@ define('CAFT_PLUGIN_NAME', 'Custom Admin Footer Text');
 		global $pagenow;
 		if (current_user_can(CAFT_PERMISSIONS_LEVEL)) { // user has privilege
 			if ($pagenow == 'options-general.php') { // we are on Settings menu
-				if ($_GET['page'] == caft_get_slug()) { // we are on this plugin's settings page
-					caft_admin_styles();
+				if (!empty($_GET['page'])) {
+					if ($_GET['page'] == caft_get_slug()) { // we are on this plugin's settings page
+						caft_admin_styles();
+					}
 				}
 			}
 		}
