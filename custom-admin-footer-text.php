@@ -3,7 +3,7 @@
 Plugin Name: Custom Admin Footer Text
 Plugin URI: http://www.jimmyscode.com/wordpress/custom-admin-footer-text/
 Description: Change the admin footer to your own custom text.
-Version: 0.0.6
+Version: 0.0.7
 Author: Jimmy Pe&ntilde;a
 Author URI: http://www.jimmyscode.com/
 License: GPLv2 or later
@@ -11,7 +11,7 @@ License: GPLv2 or later
 
 define('CAFT_PLUGIN_NAME', 'Custom Admin Footer Text');
 	// plugin constants
-	define('CAFT_VERSION', '0.0.6');
+	define('CAFT_VERSION', '0.0.7');
 	define('CAFT_SLUG', 'custom-admin-footer-text');
 	define('CAFT_LOCAL', 'caft');
 	define('CAFT_OPTION', 'caft');
@@ -47,9 +47,10 @@ define('CAFT_PLUGIN_NAME', 'Custom Admin Footer Text');
 	}
 	// validation function
 	function caft_validation($input) {
-		// sanitize textarea
-		// how?????
+		// validate all form fields
 		if (!empty($input)) {
+			$input[CAFT_DEFAULT_ENABLED_NAME] = (bool)$input[CAFT_DEFAULT_ENABLED_NAME];
+			$input[CAFT_DEFAULT_RIGHTFOOTER_NAME] = wp_kses_post(force_balance_tags($input[CAFT_DEFAULT_RIGHTFOOTER_NAME]));
 			$input[CAFT_DEFAULT_FOOTERTEXT_NAME] = wp_kses_post(force_balance_tags($input[CAFT_DEFAULT_FOOTERTEXT_NAME]));
 		}
 		return $input;
@@ -87,17 +88,19 @@ define('CAFT_PLUGIN_NAME', 'Custom Admin Footer Text');
 					<h3 id="settings"><img src="<?php echo plugins_url(caft_get_path() . '/images/settings.png'); ?>" title="" alt="" height="61" width="64" align="absmiddle" /> <?php _e('Plugin Settings', caft_get_local()); ?></h3>
 					<table class="form-table" id="theme-options-wrap">
 						<tr valign="top"><th scope="row"><strong><label title="<?php _e('Is plugin enabled? Uncheck this to turn it off temporarily.', caft_get_local()); ?>" for="<?php echo caft_get_option(); ?>[<?php echo CAFT_DEFAULT_ENABLED_NAME; ?>]"><?php _e('Plugin enabled?', caft_get_local()); ?></label></strong></th>
-							<td><input type="checkbox" id="<?php echo caft_get_option(); ?>[<?php echo CAFT_DEFAULT_ENABLED_NAME; ?>]" name="<?php echo caft_get_option(); ?>[<?php echo CAFT_DEFAULT_ENABLED_NAME; ?>]" value="1" <?php checked('1', $options[CAFT_DEFAULT_ENABLED_NAME]); ?> /></td>
+							<td><input type="checkbox" id="<?php echo caft_get_option(); ?>[<?php echo CAFT_DEFAULT_ENABLED_NAME; ?>]" name="<?php echo caft_get_option(); ?>[<?php echo CAFT_DEFAULT_ENABLED_NAME; ?>]" value="1" <?php checked('1', caft_checkifset(CAFT_DEFAULT_ENABLED_NAME, CAFT_DEFAULT_ENABLED, $options)); ?> /></td>
 						</tr>
-						<tr valign="top"><td colspan="2"><?php _e('Is plugin enabled? Uncheck this to turn it off temporarily.', caft_get_local()); ?></td></tr>
+						<?php caft_explanationrow(__('Is plugin enabled? Uncheck this to turn it off temporarily.', caft_get_local())); ?>
+						<?php caft_getlinebreak(); ?>
 						<tr valign="top"><th scope="row"><strong><label title="<?php _e('Enter custom left footer text', caft_get_local()); ?>" for="<?php echo caft_get_option(); ?>[<?php echo CAFT_DEFAULT_FOOTERTEXT_NAME; ?>]"><?php _e('Enter custom left footer text', caft_get_local()); ?></label></strong></th>
-							<td><textarea rows="12" cols="75" id="<?php echo caft_get_option(); ?>[<?php echo CAFT_DEFAULT_FOOTERTEXT_NAME; ?>]" name="<?php echo caft_get_option(); ?>[<?php echo CAFT_DEFAULT_FOOTERTEXT_NAME; ?>]"><?php echo $options[CAFT_DEFAULT_FOOTERTEXT_NAME]; ?></textarea></td>
+							<td><textarea rows="12" cols="75" id="<?php echo caft_get_option(); ?>[<?php echo CAFT_DEFAULT_FOOTERTEXT_NAME; ?>]" name="<?php echo caft_get_option(); ?>[<?php echo CAFT_DEFAULT_FOOTERTEXT_NAME; ?>]"><?php echo caft_checkifset(CAFT_DEFAULT_FOOTERTEXT_NAME, CAFT_DEFAULT_FOOTERTEXT, $options); ?></textarea></td>
 						</tr>
-						<tr valign="top"><td colspan="2"><?php _e('Type the custom footer text you want to appear in the lower <strong>left</strong> corner of admin menu pages. HTML allowed.', caft_get_local()); ?></td></tr>
+						<?php caft_explanationrow(__('Type the custom footer text you want to appear in the lower <strong>left</strong> corner of admin menu pages. HTML allowed.', caft_get_local())); ?>
+						<?php caft_getlinebreak(); ?>
 						<tr valign="top"><th scope="row"><strong><label title="<?php _e('Enter custom right footer text', caft_get_local()); ?>" for="<?php echo caft_get_option(); ?>[<?php echo CAFT_DEFAULT_RIGHTFOOTER_NAME; ?>]"><?php _e('Enter custom right footer text', caft_get_local()); ?></label></strong></th>
-							<td><textarea rows="12" cols="75" id="<?php echo caft_get_option(); ?>[<?php echo CAFT_DEFAULT_RIGHTFOOTER_NAME; ?>]" name="<?php echo caft_get_option(); ?>[<?php echo CAFT_DEFAULT_RIGHTFOOTER_NAME; ?>]"><?php echo $options[CAFT_DEFAULT_RIGHTFOOTER_NAME]; ?></textarea></td>
+							<td><textarea rows="12" cols="75" id="<?php echo caft_get_option(); ?>[<?php echo CAFT_DEFAULT_RIGHTFOOTER_NAME; ?>]" name="<?php echo caft_get_option(); ?>[<?php echo CAFT_DEFAULT_RIGHTFOOTER_NAME; ?>]"><?php echo caft_checkifset(CAFT_DEFAULT_RIGHTFOOTER_NAME, CAFT_DEFAULT_RIGHTFOOTER, $options); ?></textarea></td>
 						</tr>
-						<tr valign="top"><td colspan="2"><?php _e('Type the custom footer text you want to appear in the lower <strong>right</strong> corner of admin menu pages. HTML allowed.', caft_get_local()); ?></td></tr>					
+						<?php caft_explanationrow(__('Type the custom footer text you want to appear in the lower <strong>right</strong> corner of admin menu pages. HTML allowed.', caft_get_local())); ?>
 						</table>
 						<?php submit_button(); ?>
 				<?php } else { ?>
@@ -269,5 +272,14 @@ define('CAFT_PLUGIN_NAME', 'Custom Admin Footer Text');
 		$output .= '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7EX9NB9TLFHVW"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="Donate with PayPal" title="Support this plugin" width="92" height="26" /></a>';
 		$output .= '<br /><br />';
 		return $output;
+	}
+	function caft_checkifset($optionname, $optiondefault, $optionsarr) {
+		return (!empty($optionsarr[$optionname]) ? $optionsarr[$optionname] : $optiondefault);
+	}
+	function caft_getlinebreak() {
+	  echo '<tr valign="top"><td colspan="2"></td></tr>';
+	}
+	function caft_explanationrow($msg = '') {
+		echo '<tr valign="top"><td></td><td><em>' . $msg . '</em></td></tr>';
 	}
 ?>
