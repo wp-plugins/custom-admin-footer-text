@@ -78,6 +78,9 @@ Add this to your functions.php:
 
 == Changelog ==
 
+= 0.0.8 =
+- minor code update
+
 = 0.0.7 =
 - permanent fix for Undefined Index issue
 - admin CSS and page updates
@@ -104,6 +107,9 @@ Add this to your functions.php:
 - verified compatibility with 3.9
 
 == Upgrade Notice ==
+
+= 0.0.8 =
+- minor code update
 
 = 0.0.7 =
 - permanent fix for Undefined Index issue; admin CSS and page updates

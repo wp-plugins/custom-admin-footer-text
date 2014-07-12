@@ -3,15 +3,16 @@
 Plugin Name: Custom Admin Footer Text
 Plugin URI: http://www.jimmyscode.com/wordpress/custom-admin-footer-text/
 Description: Change the admin footer to your own custom text.
-Version: 0.0.7
+Version: 0.0.8
 Author: Jimmy Pe&ntilde;a
 Author URI: http://www.jimmyscode.com/
 License: GPLv2 or later
 */
 
-define('CAFT_PLUGIN_NAME', 'Custom Admin Footer Text');
+if (!defined('CAFT_PLUGIN_NAME')) {
 	// plugin constants
-	define('CAFT_VERSION', '0.0.7');
+	define('CAFT_PLUGIN_NAME', 'Custom Admin Footer Text');
+	define('CAFT_VERSION', '0.0.8');
 	define('CAFT_SLUG', 'custom-admin-footer-text');
 	define('CAFT_LOCAL', 'caft');
 	define('CAFT_OPTION', 'caft');
@@ -26,7 +27,7 @@ define('CAFT_PLUGIN_NAME', 'Custom Admin Footer Text');
 	define('CAFT_DEFAULT_ENABLED_NAME', 'enabled');
 	define('CAFT_DEFAULT_FOOTERTEXT_NAME', 'footertext');
 	define('CAFT_DEFAULT_RIGHTFOOTER_NAME', 'rightfooter');
-	
+}
 	// oh no you don't
 	if (!defined('ABSPATH')) {
 		wp_die(__('Do not access this file directly.', caft_get_local()));
@@ -70,7 +71,7 @@ define('CAFT_PLUGIN_NAME', 'Custom Admin Footer Text');
 		}
 		?>
 		<div class="wrap">
-			<h2 id="plugintitle"><img src="<?php echo plugins_url(caft_get_path() . '/images/bottom.png'); ?>" title="" alt="" height="64" width="64" align="absmiddle" /> <?php echo CAFT_PLUGIN_NAME; _e(' by ', caft_get_local()); ?><a href="http://www.jimmyscode.com/">Jimmy Pe&ntilde;a</a></h2>
+			<h2 id="plugintitle"><img src="<?php echo caft_getimagefilename('bottom.png'); ?>" title="" alt="" height="64" width="64" align="absmiddle" /> <?php echo CAFT_PLUGIN_NAME; _e(' by ', caft_get_local()); ?><a href="http://www.jimmyscode.com/">Jimmy Pe&ntilde;a</a></h2>
 			<div><?php _e('You are running plugin version', caft_get_local()); ?> <strong><?php echo CAFT_VERSION; ?></strong>.</div>
 			
 			<?php /* http://code.tutsplus.com/tutorials/the-complete-guide-to-the-wordpress-settings-api-part-5-tabbed-navigation-for-your-settings-page--wp-24971 */ ?>
@@ -85,7 +86,7 @@ define('CAFT_PLUGIN_NAME', 'Custom Admin Footer Text');
 				<?php $options = caft_getpluginoptions(); ?>
 				<?php update_option(caft_get_option(), $options); ?>
 				<?php if ($active_tab == 'settings') { ?>
-					<h3 id="settings"><img src="<?php echo plugins_url(caft_get_path() . '/images/settings.png'); ?>" title="" alt="" height="61" width="64" align="absmiddle" /> <?php _e('Plugin Settings', caft_get_local()); ?></h3>
+					<h3 id="settings"><img src="<?php echo caft_getimagefilename('settings.png'); ?>" title="" alt="" height="61" width="64" align="absmiddle" /> <?php _e('Plugin Settings', caft_get_local()); ?></h3>
 					<table class="form-table" id="theme-options-wrap">
 						<tr valign="top"><th scope="row"><strong><label title="<?php _e('Is plugin enabled? Uncheck this to turn it off temporarily.', caft_get_local()); ?>" for="<?php echo caft_get_option(); ?>[<?php echo CAFT_DEFAULT_ENABLED_NAME; ?>]"><?php _e('Plugin enabled?', caft_get_local()); ?></label></strong></th>
 							<td><input type="checkbox" id="<?php echo caft_get_option(); ?>[<?php echo CAFT_DEFAULT_ENABLED_NAME; ?>]" name="<?php echo caft_get_option(); ?>[<?php echo CAFT_DEFAULT_ENABLED_NAME; ?>]" value="1" <?php checked('1', caft_checkifset(CAFT_DEFAULT_ENABLED_NAME, CAFT_DEFAULT_ENABLED, $options)); ?> /></td>
@@ -104,7 +105,7 @@ define('CAFT_PLUGIN_NAME', 'Custom Admin Footer Text');
 						</table>
 						<?php submit_button(); ?>
 				<?php } else { ?>
-					<h3 id="support"><img src="<?php echo plugins_url(caft_get_path() . '/images/support.png'); ?>" title="" alt="" height="64" width="64" align="absmiddle" /> <?php _e('Support', caft_get_local()); ?></h3>
+					<h3 id="support"><img src="<?php echo caft_getimagefilename('support.png'); ?>" title="" alt="" height="64" width="64" align="absmiddle" /> <?php _e('Support', caft_get_local()); ?></h3>
 					<div class="support">
 						<?php echo caft_getsupportinfo(caft_get_slug(), caft_get_local()); ?>
 					</div>
@@ -274,12 +275,15 @@ define('CAFT_PLUGIN_NAME', 'Custom Admin Footer Text');
 		return $output;
 	}
 	function caft_checkifset($optionname, $optiondefault, $optionsarr) {
-		return (!empty($optionsarr[$optionname]) ? $optionsarr[$optionname] : $optiondefault);
+		return (isset($optionsarr[$optionname]) ? $optionsarr[$optionname] : $optiondefault);
 	}
 	function caft_getlinebreak() {
 	  echo '<tr valign="top"><td colspan="2"></td></tr>';
 	}
 	function caft_explanationrow($msg = '') {
 		echo '<tr valign="top"><td></td><td><em>' . $msg . '</em></td></tr>';
+	}
+	function caft_getimagefilename($fname = '') {
+		return plugins_url(caft_get_path() . '/images/' . $fname);
 	}
 ?>
