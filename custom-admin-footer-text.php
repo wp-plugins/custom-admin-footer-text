@@ -3,7 +3,7 @@
 Plugin Name: Custom Admin Footer Text
 Plugin URI: http://www.jimmyscode.com/wordpress/custom-admin-footer-text/
 Description: Change the admin footer to your own custom text.
-Version: 0.0.8
+Version: 0.0.9
 Author: Jimmy Pe&ntilde;a
 Author URI: http://www.jimmyscode.com/
 License: GPLv2 or later
@@ -12,7 +12,7 @@ License: GPLv2 or later
 if (!defined('CAFT_PLUGIN_NAME')) {
 	// plugin constants
 	define('CAFT_PLUGIN_NAME', 'Custom Admin Footer Text');
-	define('CAFT_VERSION', '0.0.8');
+	define('CAFT_VERSION', '0.0.9');
 	define('CAFT_SLUG', 'custom-admin-footer-text');
 	define('CAFT_LOCAL', 'caft');
 	define('CAFT_OPTION', 'caft');
@@ -75,7 +75,7 @@ if (!defined('CAFT_PLUGIN_NAME')) {
 			<div><?php _e('You are running plugin version', caft_get_local()); ?> <strong><?php echo CAFT_VERSION; ?></strong>.</div>
 			
 			<?php /* http://code.tutsplus.com/tutorials/the-complete-guide-to-the-wordpress-settings-api-part-5-tabbed-navigation-for-your-settings-page--wp-24971 */ ?>
-			<?php $active_tab = (!empty($_GET['tab']) ? $_GET['tab'] : 'settings'); ?>
+			<?php $active_tab = (isset($_GET['tab']) ? $_GET['tab'] : 'settings'); ?>
 			<h2 class="nav-tab-wrapper">
 			  <a href="?page=<?php echo caft_get_slug(); ?>&tab=settings" class="nav-tab <?php echo $active_tab == 'settings' ? 'nav-tab-active' : ''; ?>"><?php _e('Settings', caft_get_local()); ?></a>
 				<a href="?page=<?php echo caft_get_slug(); ?>&tab=support" class="nav-tab <?php echo $active_tab == 'support' ? 'nav-tab-active' : ''; ?>"><?php _e('Support', caft_get_local()); ?></a>
@@ -161,7 +161,7 @@ if (!defined('CAFT_PLUGIN_NAME')) {
 		global $pagenow;
 		if (current_user_can(CAFT_PERMISSIONS_LEVEL)) { // user has privilege
 			if ($pagenow == 'options-general.php') { // we are on Settings menu
-				if (!empty($_GET['page'])) {
+				if (isset($_GET['page'])) {
 					if ($_GET['page'] == caft_get_slug()) { // we are on this plugin's settings page
 						$options = caft_getpluginoptions();
 						if (!empty($options)) {
@@ -181,7 +181,7 @@ if (!defined('CAFT_PLUGIN_NAME')) {
 		global $pagenow;
 		if (current_user_can(CAFT_PERMISSIONS_LEVEL)) { // user has privilege
 			if ($pagenow == 'options-general.php') { // we are on Settings menu
-				if (!empty($_GET['page'])) {
+				if (isset($_GET['page'])) {
 					if ($_GET['page'] == caft_get_slug()) { // we are on this plugin's settings page
 						caft_admin_styles();
 					}
