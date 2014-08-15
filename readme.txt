@@ -26,6 +26,14 @@ Use it for:
 
 Or maybe you are just a regular guy who doesn't like the admin footer. Put a link to your site or whatever you want to see.
 
+<h3>If you need help with this plugin</h3>
+
+If this plugin breaks your site or just flat out does not work, please go to <a href="http://wordpress.org/plugins/custom-admin-footer-text/#compatibility">Compatibility</a> and click "Broken" after verifying your WordPress version and the version of the plugin you are using.
+
+Then, create a thread in the <a href="http://wordpress.org/support/plugin/custom-admin-footer-text">Support</a> forum with a description of the issue. Make sure you are using the latest version of WordPress and the plugin before reporting issues, to be sure that the issue is with the current version and not with an older version where the issue may have already been fixed.
+
+<strong>Please do not use the <a href="http://wordpress.org/support/view/plugin-reviews/custom-admin-footer-text">Reviews</a> section to report issues or request new features.</strong>
+
 = Features =
 
 <ul>
@@ -78,6 +86,9 @@ Add this to your functions.php:
 
 == Changelog ==
 
+= 0.1.0 =
+- updated .pot file and readme
+
 = 0.0.9 =
 - fixed validation issue
 
@@ -110,6 +121,9 @@ Add this to your functions.php:
 - verified compatibility with 3.9
 
 == Upgrade Notice ==
+
+= 0.1.0 =
+- updated .pot file and readme
 
 = 0.0.9 =
 - fixed validation issue

@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Custom Admin Footer Text package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Custom Admin Footer Text 0.0.3\n"
+"Project-Id-Version: Custom Admin Footer Text 0.0.9\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-admin-footer-text\n"
-"POT-Creation-Date: 2014-04-22 02:38:31+00:00\n"
+"POT-Creation-Date: 2014-08-14 16:36:23+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,96 +12,126 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: custom-admin-footer-text.php:32
+#: custom-admin-footer-text.php:33
 msgid "Do not access this file directly."
 msgstr ""
 
-#: custom-admin-footer-text.php:71
+#: custom-admin-footer-text.php:70
 msgid "You do not have sufficient permission to access this page"
 msgstr ""
 
-#: custom-admin-footer-text.php:75
+#: custom-admin-footer-text.php:74
 msgid " by "
 msgstr ""
 
-#: custom-admin-footer-text.php:76
+#: custom-admin-footer-text.php:75
 msgid "You are running plugin version"
 msgstr ""
 
-#: custom-admin-footer-text.php:81
+#: custom-admin-footer-text.php:80
+msgid "Settings"
+msgstr ""
+
+#: custom-admin-footer-text.php:81 custom-admin-footer-text.php:108
+msgid "Support"
+msgstr ""
+
+#: custom-admin-footer-text.php:89
 msgid "Plugin Settings"
 msgstr ""
 
-#: custom-admin-footer-text.php:84 custom-admin-footer-text.php:87
+#: custom-admin-footer-text.php:91 custom-admin-footer-text.php:94
 msgid "Is plugin enabled? Uncheck this to turn it off temporarily."
 msgstr ""
 
-#: custom-admin-footer-text.php:84
+#: custom-admin-footer-text.php:91
 msgid "Plugin enabled?"
 msgstr ""
 
-#: custom-admin-footer-text.php:88
+#: custom-admin-footer-text.php:96
 msgid "Enter custom left footer text"
 msgstr ""
 
-#: custom-admin-footer-text.php:91
+#: custom-admin-footer-text.php:99
 msgid ""
 "Type the custom footer text you want to appear in the lower <strong>left</"
 "strong> corner of admin menu pages. HTML allowed."
 msgstr ""
 
-#: custom-admin-footer-text.php:93
+#: custom-admin-footer-text.php:101
 msgid "Enter custom right footer text"
 msgstr ""
 
-#: custom-admin-footer-text.php:96
+#: custom-admin-footer-text.php:104
 msgid ""
 "Type the custom footer text you want to appear in the lower <strong>right</"
 "strong> corner of admin menu pages. HTML allowed."
 msgstr ""
 
-#: custom-admin-footer-text.php:104 custom-admin-footer-text.php:205
-msgid "Documentation"
-msgstr ""
-
-#: custom-admin-footer-text.php:105 custom-admin-footer-text.php:206
-msgid "FAQ"
-msgstr ""
-
-#: custom-admin-footer-text.php:106
-msgid "If you like this plugin, please "
-msgstr ""
-
-#: custom-admin-footer-text.php:108
-msgid "rate it on WordPress.org"
-msgstr ""
-
-#: custom-admin-footer-text.php:110
-msgid "and click the "
-msgstr ""
-
-#: custom-admin-footer-text.php:112
-msgid "Works"
-msgstr ""
-
-#: custom-admin-footer-text.php:114
-msgid "button. For support please visit the "
-msgstr ""
-
-#: custom-admin-footer-text.php:116
-msgid "forums"
-msgstr ""
-
-#: custom-admin-footer-text.php:169
+#: custom-admin-footer-text.php:170
 msgid "is currently disabled."
 msgstr ""
 
-#: custom-admin-footer-text.php:192
-msgid "Settings"
+#: custom-admin-footer-text.php:205
+msgid "<a href=\"http://wordpress.org/support/plugin/%s\">Support</a>"
 msgstr ""
 
-#: custom-admin-footer-text.php:204
-msgid "Support"
+#: custom-admin-footer-text.php:206 custom-admin-footer-text.php:261
+msgid "<a href=\"http://wordpress.org/extend/plugins/%s/\">Documentation</a>"
+msgstr ""
+
+#: custom-admin-footer-text.php:207
+msgid "<a href=\"http://wordpress.org/plugins/%s/faq/\">FAQ</a>"
+msgstr ""
+
+#: custom-admin-footer-text.php:254
+msgid "<a href=\"options-general.php?page=%s\">Settings</a>"
+msgstr ""
+
+#: custom-admin-footer-text.php:259
+msgid "Do you need help with this plugin? Check out the following resources:"
+msgstr ""
+
+#: custom-admin-footer-text.php:262
+msgid "<a href=\"http://wordpress.org/plugins/%s/faq/\">FAQ</a><br />"
+msgstr ""
+
+#: custom-admin-footer-text.php:263
+msgid ""
+"<a href=\"http://wordpress.org/support/plugin/%s\">Support Forum</a><br />"
+msgstr ""
+
+#: custom-admin-footer-text.php:264
+msgid ""
+"<a href=\"http://www.jimmyscode.com/wordpress/%s\">Plugin Homepage / Demo</"
+"a><br />"
+msgstr ""
+
+#: custom-admin-footer-text.php:265
+msgid ""
+"<a href=\"http://wordpress.org/extend/plugins/%s/developers/\">Development</"
+"a><br />"
+msgstr ""
+
+#: custom-admin-footer-text.php:266
+msgid ""
+"<a href=\"http://wordpress.org/plugins/%s/changelog/\">Changelog</a><br />"
+msgstr ""
+
+#: custom-admin-footer-text.php:269
+msgid ""
+"If you like this plugin, please <a href=\"http://wordpress.org/support/view/"
+"plugin-reviews/%s/\">rate it on WordPress.org</a>"
+msgstr ""
+
+#: custom-admin-footer-text.php:270
+msgid ""
+" and click the <a href=\"http://wordpress.org/plugins/%s/#compatibility"
+"\">Works</a> button. "
+msgstr ""
+
+#: custom-admin-footer-text.php:272
+msgid "Your donations encourage further development and support. "
 msgstr ""
 
 #. Plugin Name of the plugin/theme
